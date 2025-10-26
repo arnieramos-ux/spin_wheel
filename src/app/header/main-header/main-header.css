@@ -34,14 +34,14 @@
   max-width: 100%; /* responsive image */
   height: auto;
   display: block;
-
+  max-height: 900px;
   /* Combine two gradients: horizontal + vertical */
   -webkit-mask-image: 
     linear-gradient(to right, transparent, black 5%, black 95%, transparent),
     linear-gradient(to bottom, black 85%, transparent);
   mask-image: 
     linear-gradient(to right, transparent, black 5%, black 95%, transparent),
-    linear-gradient(to bottom,transparent, black 5%, black 95%, transparent);
+     linear-gradient(to bottom, black 50%, transparent);
 
   -webkit-mask-composite: intersect;
   mask-composite: intersect;
