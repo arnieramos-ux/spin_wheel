@@ -1,16 +1,23 @@
 .header-content {
   background-color: #262626;
-  height: 100px;
+  height: 60px;
   width: 100%;
-  display: flex; /* enables flexbox layout */
-  justify-content: space-between; /* space between left and right columns */
-  align-items: center; /* vertically center items */
-  padding: 0 20px; /* space on left/right edges */
-  box-sizing: border-box; /* ensures padding doesn’t break width */
+  display: flex;
+  align-items: center; /* center vertically */
+  justify-content: center; /* center content horizontally */
+  position: relative; /* needed for absolute centering later */
+  color: white;
+  box-sizing: border-box;
 }
-p {
-  color: #f1f1f1;
+.header-center p {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 600; /* adjust: 400=normal, 600=semi-bold, 700=bold */
 }
+
 #back {
   height:20px;
+}
+.header-left {
+  position: absolute;
+  left: 20px; /* keeps your icon at the left edge */
 }
