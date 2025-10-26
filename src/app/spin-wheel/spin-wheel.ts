@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MainHeader } from "../header/main-header/main-header";
 
 @Component({
   selector: 'app-spin-wheel',
-  imports: [],
+  imports: [MainHeader],
   templateUrl: './spin-wheel.html',
   styleUrl: './spin-wheel.css',
 })

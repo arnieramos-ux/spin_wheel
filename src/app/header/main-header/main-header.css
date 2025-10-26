@@ -1,0 +1,16 @@
+.header-content {
+  background-color: #262626;
+  height: 100px;
+  width: 100%;
+  display: flex; /* enables flexbox layout */
+  justify-content: space-between; /* space between left and right columns */
+  align-items: center; /* vertically center items */
+  padding: 0 20px; /* space on left/right edges */
+  box-sizing: border-box; /* ensures padding doesn’t break width */
+}
+p {
+  color: #f1f1f1;
+}
+#back {
+  height:20px;
+}
