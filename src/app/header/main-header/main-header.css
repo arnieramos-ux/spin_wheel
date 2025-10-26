@@ -21,3 +21,29 @@
   position: absolute;
   left: 20px; /* keeps your icon at the left edge */
 }
+.disco {
+  display: flex;
+  align-items: center;   /* center vertically */
+  justify-content: center; /* center horizontally */
+  position: relative; /* allows absolute positioning if needed */
+  width: 100%;
+  height: auto; /* or whatever height you need */
+}
+
+.disco img {
+  max-width: 100%; /* responsive image */
+  height: auto;
+  display: block;
+
+  /* Combine two gradients: horizontal + vertical */
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+    linear-gradient(to bottom, black 85%, transparent);
+  mask-image: 
+    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+    linear-gradient(to bottom,transparent, black 5%, black 95%, transparent);
+
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+}
+
