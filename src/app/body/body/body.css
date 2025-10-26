@@ -3,9 +3,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   background: radial-gradient(circle at center, #1a1a1a, #000); /* dark background */
+  background-image: url('/assets/images/disco.png');
+  background-repeat: no-repeat;  /* ⬅️ prevent tiling */
+    background-position: center;   /* ⬅️ keep it centered */
 }
+
+.container {
+  /* Combine two gradients: horizontal + vertical */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+    linear-gradient(to bottom, black 85%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+    linear-gradient(to bottom, black 85%, transparent);
+
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+
+  /* Ensure masks apply properly */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
 
 /* WHEEL WRAPPER */
 .wheel-container {
