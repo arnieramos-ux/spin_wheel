@@ -5,8 +5,8 @@
   width: 100%;
   height: auto; /* or whatever height you need */
   gap: 10px; /* ⬅️ adds 10px space between items */
-  margin-top: -40px; /* move up slightly */
   margin-bottom: 50px;
+  position: relative;
 }
 
 /* Left Jackpot Box */
@@ -18,11 +18,14 @@
   max-width: 400px;
   box-shadow: 0 0 15px rgba(255, 204, 51, 0.2), 0 0 25px rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
 }
 .jackpot-title {
   color: #ffcc33;
   font-weight: 700;
-  letter-spacing: 1px;
+   font-family: 'Geologica';
+   letter-spacing: -10;
+     font-size: 10px;
 }
 
 .jackpot-amount {
@@ -30,12 +33,14 @@
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 204, 51, 0.3);
+   font-family: 'Geologica';
 }
 .winner-name {
 color: #ffffff;
   margin: 0;
   font-size: 14px;
   font-weight: 600;
+     font-family: 'Geologica';
 }
 
 .winner-amount {
@@ -43,6 +48,7 @@ color: #ffffff;
   font-size: 14px;
   color: #ffcc33;
   font-weight: 600;
+     font-family: 'Geologica';
 }
 /* Right Winner Box */
 .winner-container {
@@ -72,4 +78,24 @@ color: #ffffff;
   .winner-amount{
     font-size: 15px;
   }
+}
+@media (max-width: 380px) {
+  .jackpot-container,
+  .winner-container {
+    padding: 15px;
+  }
+  .jackpot-title {
+    font-size: 7px;
+  }
+  .jackpot-amount{
+    font-size: 19px;
+  }
+  .winner-name,
+  .winner-amount{
+    font-size: 6px;
+  }
+    .winner-container{
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
 }
