@@ -1,0 +1,75 @@
+.jackpot-wrapper {
+  display: flex;
+  align-items: center; /* center vertically */
+  justify-content: center; /* center horizontally */
+  width: 100%;
+  height: auto; /* or whatever height you need */
+  gap: 10px; /* ⬅️ adds 10px space between items */
+  margin-top: -40px; /* move up slightly */
+  margin-bottom: 50px;
+}
+
+/* Left Jackpot Box */
+.jackpot-container {
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border-radius: 10px;
+  padding: 15px 25px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(255, 204, 51, 0.2), 0 0 25px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.jackpot-title {
+  color: #ffcc33;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.jackpot-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 204, 51, 0.3);
+}
+.winner-name {
+color: #ffffff;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.winner-amount {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: #ffcc33;
+  font-weight: 600;
+}
+/* Right Winner Box */
+.winner-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border-radius: 10px;
+  padding: 15px 25px;
+  max-width: 400;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 50px;
+
+}
+
+
+@media (max-width: 480px) {
+  .jackpot-container,
+  .winner-container {
+    padding: 15px;
+  }
+  .jackpot-title {
+    font-size: 10px;
+  }
+  .winner-name,
+  .winner-amount{
+    font-size: 15px;
+  }
+}
