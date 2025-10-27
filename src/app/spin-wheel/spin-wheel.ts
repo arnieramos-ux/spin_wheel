@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MainHeader } from "../header/main-header/main-header";
-import { PlayerWinner } from "../footer/player-winner/player-winner";
 import { TotalJackpot } from "../footer/total-jackpot/total-jackpot";
 import { BodyComponent } from "../body/body/body";
 
