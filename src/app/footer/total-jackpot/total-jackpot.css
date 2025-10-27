@@ -78,15 +78,25 @@
   .jackpot-amount {
     font-size: 35px;
   }
-  
+
   .winner-name,
   .winner-amount {
     font-size: 15px;
   }
-  .winner-container{
-     height: 52px;
+  .winner-container {
+    height: 52px;
+    position: relative;
+  }
+  #two {
+    position: absolute !important;
+    bottom: 50px !important;
+  }
+  #tree {
+    position: absolute !important;
+    top: 50px !important;
   }
 }
+
 @media (max-width: 380px) {
   .jackpot-container {
     padding: 15px;
@@ -109,16 +119,15 @@
   }
 
   #two {
-    position: absolute;
-    bottom: 0px; /* move down from the top */
+    position: absolute !important;
+    bottom: 50px !important;
   }
   #tree {
-    position: absolute;
-    top: 0px; /* move down from the top */
+    position: absolute !important;
+    top: 50px !important;
   }
-    
-  .winner-container{
-     height: 42px;
+  .winner-container {
+    height: 42px;
   }
 }
 

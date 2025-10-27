@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 180vh;
+  height: 139vh;
   background: radial-gradient(circle at center, #1a1a1a, #000); /* dark background */
   background-image: url('/assets/images/disco.png');
   background-repeat: no-repeat;  /* ⬅️ prevent tiling */
