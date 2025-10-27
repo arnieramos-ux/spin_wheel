@@ -5,10 +5,13 @@
   width: 100%;
   height: auto; /* or whatever height you need */
   gap: 10px; /* ⬅️ adds 10px space between items */
-  margin-top: -40px; /* move up slightly */
   margin-bottom: 50px;
+  position: relative;
+  margin-top: -200px;
 }
-
+.trophy {
+  height: 25px;
+}
 /* Left Jackpot Box */
 .jackpot-container {
   background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
@@ -22,27 +25,32 @@
 .jackpot-title {
   color: #ffcc33;
   font-weight: 700;
-  letter-spacing: 1px;
+  font-family: 'Geologica';
+  letter-spacing: -10;
+  font-size: 20px;
 }
 
 .jackpot-amount {
-  font-size: 28px;
+  font-size: 48px;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 204, 51, 0.3);
+  font-family: 'Geologica';
 }
 .winner-name {
-color: #ffffff;
+  color: #ffffff;
   margin: 0;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 600;
+  font-family: 'Geologica';
 }
 
 .winner-amount {
   margin: 2px 0 0 0;
-  font-size: 14px;
+  font-size: 24px;
   color: #ffcc33;
   font-weight: 600;
+  font-family: 'Geologica';
 }
 /* Right Winner Box */
 .winner-container {
@@ -52,13 +60,12 @@ color: #ffffff;
   background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
   border-radius: 10px;
   padding: 15px 25px;
-  max-width: 400;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  height: 50px;
-
+  height: 80px;
+  overflow: hidden; /* hide anything that goes outside */
+  position: relative;
 }
-
 
 @media (max-width: 480px) {
   .jackpot-container,
@@ -68,8 +75,98 @@ color: #ffffff;
   .jackpot-title {
     font-size: 10px;
   }
+  .jackpot-amount {
+    font-size: 35px;
+  }
+  
   .winner-name,
-  .winner-amount{
+  .winner-amount {
     font-size: 15px;
+  }
+  .winner-container{
+     height: 52px;
+  }
+}
+@media (max-width: 380px) {
+  .jackpot-container {
+    padding: 15px;
+  }
+  .jackpot-title {
+    font-size: px;
+  }
+  .jackpot-amount {
+    font-size: 25px;
+  }
+  .winner-name,
+  .winner-amount {
+    font-size: 15px;
+  }
+  .trophy {
+    height: 15px;
+  }
+  .winner-container {
+    position: relative;
+  }
+
+  #two {
+    position: absolute;
+    bottom: 0px; /* move down from the top */
+  }
+  #tree {
+    position: absolute;
+    top: 0px; /* move down from the top */
+  }
+    
+  .winner-container{
+     height: 42px;
+  }
+}
+
+#two,
+#tree {
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+#two {
+  position: absolute;
+  bottom: 70px; /* move down from the top */
+}
+#tree {
+  position: absolute;
+  top: 70px; /* move down from the top */
+}
+.columnforthis {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#one,
+#two,
+#tree {
+  gap: 10px;
+}
+.animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scrollList 20s ease-in-out infinite;
+}
+
+@keyframes scrollList {
+  0% {
+    transform: translateY(0); /* center */
+  }
+  25% {
+    transform: translateY(-90%); /* up */
+  }
+  50% {
+    transform: translateY(0); /* back to center */
+  }
+  75% {
+    transform: translateY(90%); /* down */
+  }
+  100% {
+    transform: translateY(0); /* back to center */
   }
 }
