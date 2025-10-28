@@ -1,0 +1,61 @@
+.card {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: rgba(65, 65, 65, 0.685);
+  border-radius: 15px;
+  border: 2px solid transparent;
+  overflow: hidden; /* ✅ keeps roulette inside */
+  margin: 10px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: none;
+}
+
+/* ==== TEXT ==== */
+.card-text {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  transform: rotate(-50deg);
+  transform-origin: top left;
+  width: 80px;
+  text-align: left;
+}
+
+.card-text h3,
+.card-text p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+
+  text-shadow: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.card-text h3 {
+  font-size: 14px;
+  margin: 0;
+color: rgb(160, 160, 160);
+}
+
+.card-text p {
+  font-size: 15px;
+  margin: 2px 0 0 0;
+    color: rgba(134, 134, 134, 0.6);
+}
+
+/* ==== IMAGE ==== */
+.roulette-wrapper {
+  position: absolute;
+  bottom: -25px;
+  right: -15px;
+}
+
+.roulette-image {
+  width: 75px;
+  height: 75px;
+  transform: rotate(-50deg);
+  transform-origin: center;
+  opacity: 0.95;
+  will-change: transform, filter;
+  transition: all 0.25s ease-out;
+}
