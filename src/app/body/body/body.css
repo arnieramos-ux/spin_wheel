@@ -9,14 +9,10 @@
   background-image: url('/assets/images/disco.png');
   background-repeat: no-repeat;
   background-position: center;
-
-  /* Masking effect (smooth vignette) */
-  -webkit-mask-image:
-    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
-    linear-gradient(to bottom, black 85%, transparent);
-  mask-image:
-    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
-    linear-gradient(to bottom, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+                      linear-gradient(to bottom, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+              linear-gradient(to bottom, black 85%, transparent);
   -webkit-mask-composite: intersect;
   mask-composite: intersect;
   -webkit-mask-repeat: no-repeat;
@@ -45,7 +41,7 @@
   transform-origin: center;
 }
 
-/* === SLICE IMAGES === */
+/* === SLICE CONTENT === */
 .slice {
   position: absolute;
   width: 50%;
@@ -57,6 +53,34 @@
   background-position: center;
 }
 
+.slice-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: skewY(-20deg) rotate(-130deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.slice-content img {
+  max-width: 60%;
+  height: auto;
+}
+
+.slice-content span {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+/* === SLICE COLORS === */
 .slice1 { transform: rotate(0deg) skewY(30deg); background-image: url('/assets/images/pie-bg-image.png'); }
 .slice2 { transform: rotate(60deg) skewY(30deg); background-image: url('/assets/images/pie-bg-image1.png'); }
 .slice3 { transform: rotate(120deg) skewY(30deg); background-image: url('/assets/images/pie-bg-image.png'); }
@@ -64,7 +88,7 @@
 .slice5 { transform: rotate(240deg) skewY(30deg); background-image: url('/assets/images/pie-bg-image.png'); }
 .slice6 { transform: rotate(300deg) skewY(30deg); background-image: url('/assets/images/pie-bg-image1.png'); }
 
-/* === RIM AROUND WHEEL === */
+/* === RIM === */
 .rim {
   position: absolute;
   top: 51%;
@@ -80,7 +104,7 @@
           drop-shadow(0 0 25px rgba(255, 160, 0, 0.6));
 }
 
-/* === BULBS AROUND RIM === */
+/* === BULBS === */
 .rim-bulbs {
   position: absolute;
   top: 50%;
@@ -107,7 +131,7 @@
   100% { opacity: 1; transform: scale(1.15); filter: brightness(1.4); }
 }
 
-/* === GLOW EFFECT FOR WHEEL === */
+/* === GLOW EFFECT === */
 .wheel::after {
   content: "";
   position: absolute;
@@ -138,7 +162,7 @@
   }
 }
 
-/* === RED RIBBON BELOW WHEEL === */
+/* === RIBBON === */
 .ribbon {
   position: absolute;
   top: 160px;
@@ -160,7 +184,7 @@
   100% { filter: drop-shadow(0 0 35px rgba(255, 100, 100, 1)); }
 }
 
-/* === ARROW POINTER === */
+/* === ARROW === */
 .arw-btn {
   position: absolute;
   left: 50%;
@@ -172,45 +196,48 @@
   height: 75px;
 }
 
-/* === SPIN INFO BUTTON === */
+/* === SPIN BUTTON === */
 .spin-info-btn {
   position: absolute;
   left: 50%;
   top: calc(50% + (var(--wheel-size) / 2) + 80px);
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 30px;
+  justify-content: center;
   width: 230px;
+  height: 70px;
   background: linear-gradient(90deg, #e74c3c, #d68910);
   border: none;
   border-radius: 8px;
   color: white;
   font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  transition: transform 0.2s ease;
   z-index: 10;
 }
 
-.spin-info-btn:hover {
-  transform: translateX(-50%) scale(1.05);
+.spin-info-btn:disabled {
+  background: linear-gradient(90deg, #555, #777);
+  color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 .spin-label {
   font-size: 14px;
-  font-weight: 600;
   letter-spacing: 1px;
 }
 
 .spin-count {
   font-size: 22px;
   font-weight: 700;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
-/* === UNDER WHEEL GLOW (floor reflection) === */
+/* === UNDER GLOW === */
 .wheel-container::before {
   content: "";
   position: absolute;
@@ -224,26 +251,44 @@
   z-index: 0;
 }
 
-/* === PRIZE ROW === */
+/* === PRIZES ROW === */
 .prizes-row {
   position: absolute;
   top: 100px;
   left: 410px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: flex-start;
   gap: 12px;
   padding: 55px;
-  width: auto;
   z-index: 12;
 }
 
-/* === PRIZE CARD === */
-.prize-card {
+/* === WINNER BANNER === */
+.winner-banner {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
-  margin: 0;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgb(219, 187, 1);
+  pointer-events: none;
+  opacity: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px #f7e600, 0 0 25px #f7e600;
+}
+
+.winner-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #fff;
 }

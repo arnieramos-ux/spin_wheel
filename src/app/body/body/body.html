@@ -1,6 +1,5 @@
 <div class="container">
 
-  <!-- 🎁 Prize Cards -->
   <div class="prizes-row">
     <div class="prize-card">
       <app-prizes-card title="MINOR" subtitle="Prizes" image="/assets/images/small_roulette1.png"></app-prizes-card>
@@ -11,32 +10,26 @@
     <div class="prize-card">
       <app-prizes-card title="GRAND" subtitle="Prizes" image="/assets/images/small_roulette3.png"></app-prizes-card>
     </div>
-
     <app-level subtitle="REQUIRED VIP LEVEL" title="VIP 10"></app-level>
-
   </div>
 
-  <!-- 🎡 Roulette Wheel -->
   <div class="wheel-container">
     <div #wheel class="wheel">
-      <div class="slice slice1"></div>
-      <div class="slice slice2"></div>
-      <div class="slice slice3"></div>
-      <div class="slice slice4"></div>
-      <div class="slice slice5"></div>
-      <div class="slice slice6"></div>
+      <div class="slice slice1"><div class="slice-content"><img src="/assets/images/nmax.png" alt=""><span>YAMAHA NMAX</span></div></div>
+      <div class="slice slice2"><div class="slice-content"><img src="/assets/images/nmax.png" alt=""><span>HONDA NMAX</span></div></div>
+      <div class="slice slice3"><div class="slice-content"><img src="/assets/images/nmax.png" alt=""><span>LAMBO NMAX</span></div></div>
+      <div class="slice slice4"><div class="slice-content"><img src="/assets/images/nmax.png" alt=""><span>BMW NMAX</span></div></div>
+      <div class="slice slice5"><div class="slice-content"><img src="/assets/images/nmax.png" alt=""><span>FERRARI NMAX</span></div></div>
+      <div class="slice slice6"><div class="slice-content"><img src="/assets/images/nmax.png" alt=""><span>YAMAHA NMAX</span></div></div>
     </div>
 
-    <button class="spin-info-btn" (click)="spinWheel()">
+    <button class="spin-info-btn" [disabled]="spinCount <= 0 || isSpinning" (click)="spinWheel()">
       <div class="spin-label">NO. OF FREE SPIN</div>
-      <div class="spin-count">1 SPIN</div>
+      <div class="spin-count">{{ spinCount }} SPIN</div>
     </button>
 
-    <div class="rim">
-      <img src="/assets/images/rim.png" alt="">
-    </div>
-
-    <!-- 💡 Rim Bulbs -->
+    <div class="rim"><img src="/assets/images/rim.png" alt=""></div>
+ <!-- 💡 Rim Bulbs -->
     <div class="rim-bulbs">
       <div class="bulb" style="top: 8%; left: 48%;"></div>
       <div class="bulb" style="top: 20%; left: 78%;"></div>
@@ -48,13 +41,13 @@
       <div class="bulb" style="top: 19%; left: 19%;"></div>
     </div>
 
-    <div class="ribbon">
-      <img src="/assets/images/ribbon.png" height="100px" alt="">
-    </div>
+    <div class="ribbon"><img src="/assets/images/ribbon.png" alt=""></div>
+    <div class="arw-btn"><img src="/assets/images/arrw-btn.png" alt=""></div>
+  </div>
 
-    <div class="arw-btn">
-      <img src="/assets/images/arrw-btn.png" height="20px" alt="">
-    </div>
+  <div #winnerBanner class="winner-banner">
+    <img *ngIf="winnerImage" [src]="winnerImage" alt="Prize" class="winner-img" />
+    <span>{{ winnerText }}</span>
   </div>
 
 </div>
