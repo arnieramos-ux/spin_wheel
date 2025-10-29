@@ -23,23 +23,26 @@ export class BodyComponent implements AfterViewInit {
   rotation = 0;
   bulbs = Array.from({ length: 24 });
 
-  ngAfterViewInit() {
-    const alignBulbs = () => {
-      const lights = document.querySelectorAll('.bulb');
-      const radius = 245;
-      lights.forEach((bulb, i) => {
-        const angle = (i / lights.length) * 2 * Math.PI;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        (bulb as HTMLElement).style.left = `calc(50% + ${x}px)`;
-        (bulb as HTMLElement).style.top = `calc(50% + ${y}px)`;
-      });
-    };
+    ngAfterViewInit() {
+    requestAnimationFrame(() => {
+      const bulbContainer = document.querySelector('.rim-bulbs');
+      if (!bulbContainer) return;
 
-    const rimImg = document.querySelector('.rim img') as HTMLImageElement;
-    if (rimImg.complete) setTimeout(alignBulbs, 50);
-    else rimImg.onload = () => setTimeout(alignBulbs, 50);
-    window.addEventListener('resize', alignBulbs);
+      const bulbElements = document.querySelectorAll('.bulb');
+      const radius = 245;
+      const totalBulbs = bulbElements.length;
+      
+      bulbElements.forEach((bulb, index) => {
+        const angle = (index / totalBulbs) * 2 * Math.PI;
+        const position = {
+          x: Math.cos(angle) * radius,
+          y: Math.sin(angle) * radius
+        };
+        
+        (bulb as HTMLElement).style.transform = 
+          `translate(calc(50% + ${position.x}px), calc(50% + ${position.y}px))`;
+      });
+    });
   }
 
   spinWheel() {
